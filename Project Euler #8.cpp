@@ -1,3 +1,10 @@
+/*
+
+Title: Largest product in a series
+Link: https://www.hackerrank.com/contests/projecteuler/challenges/euler008/problem
+
+
+*/
 #include<bits/stdc++.h>
 #include<ext/pb_ds/assoc_container.hpp>
 #include<ext/pb_ds/tree_policy.hpp>
