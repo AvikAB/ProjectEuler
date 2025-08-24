@@ -20,10 +20,9 @@ int main(){
     FASTER
 
     ll grid[20][20];
-    // Input: read column-wise then row-wise (as you described)
-    for(int col=0; col<20; col++){
-        for(int row=0; row<20; row++){
-            cin >> grid[row][col];
+    for(int row=0; row<20; row++){
+        for(int col=0; col<20; col++){
+            cin>>grid[row][col];
         }
     }
 
