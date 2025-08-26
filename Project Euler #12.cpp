@@ -1,5 +1,5 @@
 /*
-      Title: Project Euler #12
+      Title: Highly divisible triangular number
       Link: https://www.hackerrank.com/contests/projecteuler/challenges/euler012/problem
 */
 #include<bits/stdc++.h>
