@@ -89,3 +89,60 @@ Intuition: There is total 2 ways to traverse for the minimum distance:
   The num of routes will be sum of all routes when going right plus all routes when going down: grid[r][c] = grid[r+1][c] + grid[r][c+1].
   Using to dp to avoid TLE.
 */
+
+
+// Solve by Combinatorics:
+#include<bits/stdc++.h>
+#include<ext/pb_ds/assoc_container.hpp>
+#include<ext/pb_ds/tree_policy.hpp>
+using namespace std;
+using namespace __gnu_pbds;
+
+#define ll long long
+#define nl "\n"
+#define FASTER ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+template <typename T> using ordered_set = tree<T,null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+
+const ll N = 1e5+10;
+const ll mod = 1e9+7;
+const ll INF = 1e9+10;
+
+ll bigmod(ll a,ll b,ll m){
+    if(b==0) return 1%m;
+    if(b%2==0){
+        ll t = bigmod(a,b/2,m);
+        return (1LL*t*t%m);
+    } else {
+        ll t = bigmod(a,(b-1)/2,m);
+        t = (1LL*t*t)%m;
+        return (1LL*a*t%m);
+    }
+}
+
+ll nCr(ll n, ll r){
+    ll ans = 1;
+    for(int i=1; i<=min(r, n-r); i++){
+        ans = (ans*(n-i+1)) % mod;
+        ll inv_mod = bigmod(i, mod-2, mod);  // fermet's little theorem   // O(log(mod)) for each iteration
+        ans = (ans * inv_mod) % mod;
+
+    }
+    return ans;
+}
+
+void solve(){
+    ll n,m;
+    cin>>n>>m;
+    cout<< nCr(n+m, n)<<nl;
+}
+
+int main(){
+    FASTER
+    ll t;
+    cin>>t;
+    while(t--){
+        solve();
+    }
+}
+
+// TC: O(min(n,m)*log(mod)), SC: O(log(mod)) = O(30) ~ O(1)
