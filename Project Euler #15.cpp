@@ -79,8 +79,9 @@ Intuition: There is total 2 ways to traverse for the minimum distance:
       ** 0-based or 1-based the minimum number of moves is always (n-1) + (m-1).
 
       ** Combination formula to solve this:  (easy way to avoid TLE)
-              (width+height)! / width! * height!
+              (width+height)! / width! * height!   [use this in code because of it gives the grid of squares, n-1 & m-1 gives the grids of points]
           => (n+m-2) / (n-1)! * (m-1)!
+          The formula is written by (n+m-2) C (n-1).
   
   Another way is DFS / BFS traversal:
   Each grids consists of (width+1)*(height+1) points. Our co-ords will be [0][0] in the top left corner to [width-1][height-1] in the bottom right corner.
